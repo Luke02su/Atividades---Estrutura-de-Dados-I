@@ -18,15 +18,15 @@ struct Loja {
 			return;
 		} 
 		  	printf("\nDigite um nome: ");
-	        scanf("%s", nome[qtdFunc]);
+	        scanf(" %[^\n]%*c", nome[qtdFunc]);
             printf("Digite o cargo: ");
-            scanf("%s", cargo[qtdFunc]);
+            scanf(" %[^\n]%*c", cargo[qtdFunc]);
 	        printf("Digite o salario base: ");
-	        scanf("%lf", &salarioBase[qtdFunc]);
+	        scanf("%lf%*c", &salarioBase[qtdFunc]);
 	        printf("Digite os beneficios: ");
-	        scanf("%lf", &beneficios[qtdFunc]);
+	        scanf("%lf%*c", &beneficios[qtdFunc]);
 			printf("Digite os descontos: ");
-			scanf("%lf", &descontos[qtdFunc]);
+			scanf("%lf%*c", &descontos[qtdFunc]);
 			
 			printf("\n");
 			
@@ -109,7 +109,7 @@ int main() {
 	
 	do {
 		printf("1. Cadastrar funcionario\n2. Listar funcionario(s)\n3. Media salarial da loja\n4. Funcionario com maior salario\n5. Sair do programa\n\n");
-		scanf("%d", &opcao);
+		scanf("%d%*c", &opcao);
 		
 		switch(opcao) {
 			case 1: {
