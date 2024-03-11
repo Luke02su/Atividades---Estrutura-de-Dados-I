@@ -33,7 +33,7 @@ struct Cliente {
 
 	void ler() {
 
-		if(qtdCliente >= 10) {
+		if(qtdCliente >= 50) {
 			printf("\nMaximo de clientes cadastrados (50).\n\n");
 			return;
 		}
