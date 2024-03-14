@@ -75,7 +75,7 @@ int main() {
 
     do{
 
-        printf("1. Criar um conjunto vazio\n2. Ler os dados de um conjunto\n3. Fazer a uniao de dois conjuntos\n4. Fazer a intersecao de dois conjuntos\n5. Imprimir um conjunto\n\n");
+        printf("1. Criar um conjunto vazio\n2. Ler os dados de um conjunto\n3. Fazer a uniao de dois conjuntos\n4. Fazer a intersecao de dois conjuntos\n5. Imprimir um conjunto\n6. Sair do programa\n\n");
         scanf("%d%*c", &opcao);
 
         switch(opcao) {
