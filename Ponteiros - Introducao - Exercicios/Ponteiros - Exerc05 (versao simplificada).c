@@ -5,7 +5,7 @@ void maiorElement(int vet[], int *pont1, int *pont2) { // passando parâmetros (
     *pont1 = vet[0]; // recebe o vetor da posição 0
     *pont2 = vet[0];
 
-    for(int i = 1; i < TAM; i++) { // verifica menores e maiores da posição 1 a 10 (evitando erro para captar o menor ou maior caso iniciasse com 0, pois já foi inicializada)
+    for(int i = 1; i < TAM; i++) { // verifica menores e maiores da posição 1 a 10 (evitando erro para captar o menor caso iniciasse com a posiçaõ 0, pois já foi inicializada)
         if(vet[i] < *pont1) {
             *pont1 = vet[i];
         } else if(vet[i] > *pont2) {
