@@ -90,7 +90,7 @@ struct Lista {
         if (n < x) { // n (tamanho da lista) menor que x (tamanho dos elementos a serem excluídos)
             for(int i = 0; i < n; i++) { // cont até o tamanho da lista
                 removerInicio(); // apagando todos os elementos se x for maior que n
-                n++; // incrementa o tamanho da lista pois nas funcoes inicio e remover é subtraído
+                n++; // incrementa o tamanho da lista pois nas funcoes inicio e remover é subtraído, para não interferir no n < x
             } 
         } else if (n >= x) { // n (tamanho da lista) maior que x ou igual x (tamanho dos elementos a serem excluídos)
             for(int i = 0; i < x; i++) { // cont até o tanto que deve ser excluido
@@ -118,16 +118,25 @@ struct Lista {
     
     void inserirVariosNumeros(int x) { // passando x (limite do cont) 4. Crie um método que receba um número N e insira na lista todos os números de 1 até N.
         for (int i = 1; i <= x; i++) {
-            inserirFinal(i);
+            inserirFinal(i); // inserindo a qtd de num até x na no final da lista
         }
     }
     
-    // 5. Crie um método que insere um elemento sempre na penúltima posição da lista. Se a lista tiver tamanho <= 1, seu método não deve fazer nada.
-    
-    void inserirPenultimaPosicao() {
+    void inserirPenultimaPosicao(int x) { // 5. Crie um método que insere um elemento sempre na penúltima posição da lista. Se a lista tiver tamanho <= 1, seu método não deve fazer nada.
         if (n <= 1) return;
         
+        No* novo = new No(x); // cria um novo nó com o valor x
     
+        No* penultimo = inicio; // inicia o ponteiro penultimo no início da lista
+    
+        while (penultimo->prox != fim) { // percorre a lista até encontrar o penúltimo nó (o nó antes de fim)
+            penultimo = penultimo->prox;
+        } 
+        
+        novo->prox = fim; // insere o novo nó na penúltima posição, o próximo do novo nó passa a ser o nó fim
+        penultimo->prox = novo; // o próximo do penúltimo nó passa a ser o novo nó
+        
+        n++; // incrementa o contador de elementos da lista
     }
     
     void imprimir() {
@@ -153,8 +162,10 @@ int main() {
     l.inserirFinal(4);
     //l.removerXElementosFinal(2);
     //l.removerSegundoElemento();
-    //l.inserirFinalTamanh(oLista();
+    //l.inserirFinalTamanhoLista();
     //l.inserirVariosNumeros(5);
+    l.inserirPenultimaPosicao(2);
+    l.inserirPenultimaPosicao(1);
     l.imprimir();
 
 
