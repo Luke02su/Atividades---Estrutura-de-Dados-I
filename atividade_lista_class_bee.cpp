@@ -1,4 +1,6 @@
 #include<stdio.h>
+#include<limits.h>
+
 // Estrutura para representar um nó na lista
 struct No {
     
@@ -146,15 +148,68 @@ struct Lista {
         No *novo = new No(x);      // Cria o novo nó com o valor dado
         aux->prox = novo;          // O próximo do penúltimo nó é o novo nó
         novo->prox = fim;          // O próximo do novo nó é o fim
-        n++;
+        n++;                       // Incrementa à lista
+    }
+    
+    void substituicaoVetor1() {
+        No* aux = inicio;
+        int i = 0;
+        
+        while (aux != NULL) {
+            if(aux->valor < 1) {
+                aux->valor = 1;
+            }
+            printf("X[%d] = %d\n", i++, aux->valor);
+            aux = aux->prox;
+        }
+    }
+    
+    void maiorMenor() {
+        No* aux = inicio;
+        int menor = INT_MAX;
+        int pos, i = 0;
+        
+        while (aux != NULL) {
+            if (aux->valor < menor) {
+                menor = aux->valor;
+                pos = i;
+            }
+            aux = aux->prox;
+            i++;
+        }
+        printf("Menor valor: %d\n", menor);
+        printf("Posicao: %d\n", pos);
     }
 };
+
+
     
 int main() {
     
     Lista l;
+    int valor;
+    int qtd;
     
-    l.inserirInicio(10);
+    scanf("%d", &qtd);
+    for (int i; i < qtd; i++) {
+        scanf("%d", &valor);
+        l.inserirFinal(valor);
+    }
+    
+    l.maiorMenor();
+    
+    
+    
+    /*int valor;
+    
+    for (int i = 0; i < 10; i++) {
+        scanf("%d", &valor);
+        l.inserirFinal(valor);
+    }
+    
+    l.substituicaoVetor1();/*
+    
+    /*l.inserirInicio(10);
     l.inserirInicio(5);
     l.inserirInicio(1);
     l.inserirInicio(8);
@@ -170,7 +225,7 @@ int main() {
     l.inserirNumerosX(3);
     l.inserirPenultima(100);
     l.inserirFinalTamanho();
-    l.imprimir();
+    l.imprimir();*/
     
     return 0;
 }
